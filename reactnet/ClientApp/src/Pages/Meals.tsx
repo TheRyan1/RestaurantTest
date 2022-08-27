@@ -135,8 +135,8 @@ function Meals() {
                         {selectedForUpdate
                             ? `Update the
                                set meal ${
-                                       restaurants.find((x: any) => x.id == selectedrestaurant)?.name
-                               }`
+                                restaurants.find((x: any) => x.id == selectedrestaurant)?.name
+                            }`
                             : `Create a set meal for ${
                                 restaurants.find((x: any) => x.id == selectedrestaurant)?.name
                             }`}
