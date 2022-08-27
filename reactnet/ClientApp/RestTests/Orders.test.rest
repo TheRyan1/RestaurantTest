@@ -1,0 +1,3 @@
+###Get
+
+GET https://localhost:5000/api/order/2
