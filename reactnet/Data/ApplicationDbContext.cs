@@ -12,8 +12,8 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
         : base(options, operationalStoreOptions)
     {
-
     }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -45,36 +45,34 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
         // Seed the Admin
 
         builder.Entity<ApplicationUser>(u =>
-       {
-           u.HasData(new ApplicationUser
-           {
-               Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-               Name = "Admin",
-               Surname = "Administrator",
-               UserName = "Admin",
-               NormalizedUserName = "admin",
-               Email = "admin@test.com",
-               LoginEmail = "admin@test.com",
-               NormalizedEmail = "admin@test.com",
-               EmailConfirmed = true,
-               PasswordHash = hasher.HashPassword(null, "admin"),
-               PasswordResetToken = new Guid().ToString(),
-               SecurityStamp = new Guid().ToString(),
-               DateTimeCreated = DateTime.Now,
-               DateTimeActivated = DateTime.Now,
-               AccessFailedCount = 0,
-               IsActive = true,
-               LockoutEnabled = false,
-               TwoFactorEnabled = false
-           });
-
-       });
+        {
+            u.HasData(new ApplicationUser
+            {
+                Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                Name = "Admin",
+                Surname = "Administrator",
+                UserName = "Admin",
+                NormalizedUserName = "admin",
+                Email = "admin@test.com",
+                LoginEmail = "admin@test.com",
+                NormalizedEmail = "admin@test.com",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "admin"),
+                PasswordResetToken = new Guid().ToString(),
+                SecurityStamp = new Guid().ToString(),
+                DateTimeCreated = DateTime.Now,
+                DateTimeActivated = DateTime.Now,
+                AccessFailedCount = 0,
+                IsActive = true,
+                LockoutEnabled = false,
+                TwoFactorEnabled = false
+            });
+        });
 
         // Seed the UserRoles Table
 
         builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
         {
-
             RoleId = "5ce0c370-ea9e-4ce2-9af9-b30eb09777d4",
             UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575"
         });

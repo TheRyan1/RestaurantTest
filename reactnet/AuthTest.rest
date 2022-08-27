@@ -5,9 +5,10 @@ POST http://localhost:5001/api/authorization/login
 Content-Type: application/json
 
 {
-    "email" : "admin@test.com",
-    "password":"admin"
+  "email": "admin@test.com",
+  "password": "admin"
 }
+
 ###
 
 GET http://localhost:5001/api/user/currentuser
@@ -27,9 +28,8 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW4iLCJqdGkiOiJkZTVkYjMwYS00Mzg4LTQwZmQtYjMwMS0wZjczNjVhZWIwOTciLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImExOGJlOWMwLWFhNjUtNGFmOC1iZDE3LTAwYmQ5MzQ0ZTU3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNjYxNTk4NzU4LCJpc3MiOiJSeWFuIiwiYXVkIjoiUnlhbiJ9.OancgXjfZ81vs9VVxn4NQ8CXlZv4JwhjF9xfvJ6Jhug
 
 {
-    
-    "email" : "q@test.com",
-    "password":"q",
-    "firstName": "Ryan",
-    "lastName": "zeelie",
+  "email": "q@test.com",
+  "password": "q",
+  "firstName": "Ryan",
+  "lastName": "zeelie",
 }

@@ -1,58 +1,55 @@
-
 using reactnet.Data;
 using System.Security.Claims;
 using reactnet.Models.APIModels;
-namespace reactnet.Helpers
+
+namespace reactnet.Helpers;
+
+public class ControllerHelpers
 {
-    public class ControllerHelpers
+    /// <summary>
+    /// Returns the currently logged in user
+    /// </summary>
+    /// <param></param>
+    /// <returns></returns>
+    public static UserModel GetUser(ClaimsPrincipal User, ApplicationDbContext _dbContenxt)
     {
-        /// <summary>
-        /// Returns the currently logged in user
-        /// </summary>
-        /// <param></param>
-        /// <returns></returns>
-        public static UserModel GetUser(ClaimsPrincipal User, ApplicationDbContext _dbContenxt)
-        {
-            // Get the UserID
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        // Get the UserID
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            // Get the details of the user
-            var currentUser = _dbContenxt.Users
-               .Join(_dbContenxt.UserRoles,
-                   u => u.Id,
-                   ur => ur.UserId,
-                   (u, ur) => new
-                   {
-                       user = u,
-                       userRoles = ur
-                   })
-               .Join(_dbContenxt.Roles,
-                   ur => ur.userRoles.RoleId,
-                   r => r.Id,
-                   (ur, r) => new
-                   {
-                       user = ur.user,
-                       role = r
-                   })
-               .FirstOrDefault(x => x.user.Id == userId);
+        // Get the details of the user
+        var currentUser = _dbContenxt.Users
+            .Join(_dbContenxt.UserRoles,
+                u => u.Id,
+                ur => ur.UserId,
+                (u, ur) => new
+                {
+                    user = u,
+                    userRoles = ur
+                })
+            .Join(_dbContenxt.Roles,
+                ur => ur.userRoles.RoleId,
+                r => r.Id,
+                (ur, r) => new
+                {
+                    user = ur.user,
+                    role = r
+                })
+            .FirstOrDefault(x => x.user.Id == userId);
 
-            // If the user is null
-            if (currentUser == null)
-            {
-                // return empty user
-                return new UserModel();
-            }
+        // If the user is null
+        if (currentUser == null)
+            // return empty user
+            return new UserModel();
 
-            // Load the user into the model to be sent back to the requesting method
+        // Load the user into the model to be sent back to the requesting method
 
-            UserModel Result = new UserModel(currentUser.user);
+        var Result = new UserModel(currentUser.user);
 
-            // Update the role
-            Result.Role = currentUser.role.Name;
+        // Update the role
+        Result.Role = currentUser.role.Name;
 
-            // Return
+        // Return
 
-            return Result;
-        }
+        return Result;
     }
 }

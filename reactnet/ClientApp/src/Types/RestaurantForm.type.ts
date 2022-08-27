@@ -1,7 +1,7 @@
 type RestaurantFormType = {
     id: number;
     Name: string;
-  };
-  
-  export default RestaurantFormType;
+};
+
+export default RestaurantFormType;
   
