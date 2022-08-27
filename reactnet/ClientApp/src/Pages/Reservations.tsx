@@ -11,12 +11,11 @@ import {getReservations} from "../API/Reservation.API";
 import {getRestaurants} from "../API/Restaurant.API";
 import RestaurantType from "../Types/Restaurant.type";
 import {GridColDef, GridRenderCellParams} from "@mui/x-data-grid";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {AddCircle} from "@mui/icons-material";
 import ReservationType from "../Types/Reservation.type";
 import {ReservationStatusForDropDown} from '../Constants/ReservationStatus'
 import {modalStyle} from "../CustomStyles/CustomStyles";
-import {useParams} from 'react-router-dom'
 import EditIcon from '@mui/icons-material/Edit';
 
 function Reservations() {

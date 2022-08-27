@@ -28,7 +28,7 @@ public class AuthorizationController : ControllerBase
     }
 
     /// <summary>
-    /// Login User and return JWT Token
+    ///     Login User and return JWT Token
     /// </summary>
     /// <param name="loginInfo"></param>
     /// <returns></returns>
@@ -58,7 +58,7 @@ public class AuthorizationController : ControllerBase
     }
 
     /// <summary>
-    /// Generate JWT token for given User
+    ///     Generate JWT token for given User
     /// </summary>
     /// <param name="user"></param>
     /// <returns></returns>
@@ -75,7 +75,7 @@ public class AuthorizationController : ControllerBase
         {
             new(ClaimTypes.Name, user.UserName),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new(ClaimTypes.NameIdentifier, user.Id.ToString())
+            new(ClaimTypes.NameIdentifier, user.Id)
         };
 
         // Add role Claim

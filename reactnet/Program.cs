@@ -2,11 +2,10 @@ using System.Text;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using reactnet.Data;
 using reactnet.Models;
 
@@ -44,7 +43,7 @@ builder.Services.Configure<JwtBearerOptions>(
     {
         options.SaveToken = true;
         options.RequireHttpsMetadata = false;
-        options.TokenValidationParameters = new TokenValidationParameters()
+        options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
@@ -56,7 +55,7 @@ builder.Services.Configure<JwtBearerOptions>(
         };
     });
 builder.Services.AddControllers().AddNewtonsoftJson(x =>
-    x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+    x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 ;
 builder.Services.AddRazorPages();
 

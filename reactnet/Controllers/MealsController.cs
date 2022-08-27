@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using reactnet.Data;
-using reactnet.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
+using reactnet.Data;
+using reactnet.Helpers;
+using reactnet.Models;
 
 namespace reactnet.Controllers;
 
@@ -22,7 +19,7 @@ public class MealsController : ControllerBase
     }
 
     /// <summary>
-    /// Gets the meals for a specific or all restaurants 
+    ///     Gets the meals for a specific or all restaurants
     /// </summary>
     /// <param></param>
     /// <returns></returns>
@@ -31,7 +28,7 @@ public class MealsController : ControllerBase
     public async Task<List<Meal>> Get(int id)
     {
         // Get the logged in user
-        var user = Helpers.ControllerHelpers.GetUser(User, _dbContenxt);
+        var user = ControllerHelpers.GetUser(User, _dbContenxt);
 
         // Return all for the admin
         if (user.Role == UserRoleConstants.ADMIN)
@@ -49,7 +46,7 @@ public class MealsController : ControllerBase
     }
 
     /// <summary>
-    /// Creates or updates a meal
+    ///     Creates or updates a meal
     /// </summary>
     /// <param name="user"></param>
     /// <returns></returns>
@@ -78,7 +75,7 @@ public class MealsController : ControllerBase
 
             // Create a new meal
 
-            var newMeal = new Meal()
+            var newMeal = new Meal
             {
                 RestaurantID = data.RestaurantID,
                 Description = data.Description,

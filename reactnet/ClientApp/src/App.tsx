@@ -1,8 +1,6 @@
 import React, {useEffect} from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Layout from "./Components/Layout";
-import {useStore} from "./Providers/Store";
 import Login from "./Pages/Login";
 import {Authenticate} from "./API/Auth";
 

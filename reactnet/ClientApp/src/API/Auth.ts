@@ -1,6 +1,4 @@
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
-import {useStore} from "../Providers/Store";
 
 type loginDetails = {
     email: string;

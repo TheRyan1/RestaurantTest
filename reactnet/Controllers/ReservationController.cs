@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using reactnet.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using reactnet.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using reactnet.Data;
 using reactnet.Helpers;
+using reactnet.Models;
 
 namespace reactnet.Controllers;
 
@@ -24,7 +20,7 @@ public class ReservationController : ControllerBase
     }
 
     /// <summary>
-    /// Gets the reservation for a specific or all restaurants  
+    ///     Gets the reservation for a specific or all restaurants
     /// </summary>
     /// <param></param>
     /// <returns></returns>
@@ -58,7 +54,7 @@ public class ReservationController : ControllerBase
     }
 
     /// <summary>
-    /// Creates or updates a reservation 
+    ///     Creates or updates a reservation
     /// </summary>
     /// <returns></returns>
     [Authorize]
@@ -79,7 +75,7 @@ public class ReservationController : ControllerBase
                 return StatusCode(200, "Success");
             }
 
-            var newReservation = new Reservation()
+            var newReservation = new Reservation
             {
                 RestaurantID = data.RestaurantID,
                 Description = data.Description,

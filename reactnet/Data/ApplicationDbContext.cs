@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+﻿using Duende.IdentityServer.EntityFramework.Options;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Duende.IdentityServer.EntityFramework.Options;
 using reactnet.Models;
-using Microsoft.AspNetCore.Identity;
 
 namespace reactnet.Data;
 
@@ -13,6 +13,11 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
         : base(options, operationalStoreOptions)
     {
     }
+
+    public DbSet<Restaurant> Restuarant { get; set; }
+    public DbSet<Order> Order { get; set; }
+    public DbSet<Reservation> Reservation { get; set; }
+    public DbSet<Meal> Meal { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -77,9 +82,4 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
             UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575"
         });
     }
-
-    public DbSet<Restaurant> Restuarant { get; set; }
-    public DbSet<Order> Order { get; set; }
-    public DbSet<Reservation> Reservation { get; set; }
-    public DbSet<Meal> Meal { get; set; }
 }

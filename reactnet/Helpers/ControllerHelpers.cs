@@ -1,5 +1,5 @@
-using reactnet.Data;
 using System.Security.Claims;
+using reactnet.Data;
 using reactnet.Models.APIModels;
 
 namespace reactnet.Helpers;
@@ -7,7 +7,7 @@ namespace reactnet.Helpers;
 public class ControllerHelpers
 {
     /// <summary>
-    /// Returns the currently logged in user
+    ///     Returns the currently logged in user
     /// </summary>
     /// <param></param>
     /// <returns></returns>
@@ -31,7 +31,7 @@ public class ControllerHelpers
                 r => r.Id,
                 (ur, r) => new
                 {
-                    user = ur.user,
+                    ur.user,
                     role = r
                 })
             .FirstOrDefault(x => x.user.Id == userId);

@@ -1,6 +1,4 @@
-import {PlayCircleFilledWhite} from "@mui/icons-material";
-import {createTheme, FormControl, FormLabel} from "@mui/material";
-import {color, padding, palette, textAlign} from "@mui/system";
+import {createTheme} from "@mui/material";
 
 export const theme = createTheme({
     palette: {

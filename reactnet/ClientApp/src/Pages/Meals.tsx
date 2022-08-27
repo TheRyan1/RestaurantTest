@@ -5,20 +5,18 @@ import CustomToolbar from "../Components/CustomToolbar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import ReservationForm from "../Forms/ReservationForm";
 import {useQuery} from "@tanstack/react-query";
 import {getMeals} from "../API/Meal.API";
 import {getRestaurants} from "../API/Restaurant.API";
 import RestaurantType from "../Types/Restaurant.type";
 import {GridColDef, GridRenderCellParams} from "@mui/x-data-grid";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {AddCircle} from "@mui/icons-material";
 import ReservationType from "../Types/Reservation.type";
 import MealForm from "../Forms/MealForm";
 import {FoodTypes} from "../Constants/FoodTypes";
 import {DrinkTypes} from "../Constants/DrinkTypes";
 import {modalStyle} from "../CustomStyles/CustomStyles";
-import {useParams} from 'react-router-dom'
 import EditIcon from '@mui/icons-material/Edit';
 
 function Meals() {
@@ -135,9 +133,10 @@ function Meals() {
                 <Box sx={modalStyle}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         {selectedForUpdate
-                            ? `Update the set meal ${
-                                restaurants.find((x: any) => x.id == selectedrestaurant)?.name
-                            }`
+                            ? `Update the
+                               set meal ${
+                                       restaurants.find((x: any) => x.id == selectedrestaurant)?.name
+                               }`
                             : `Create a set meal for ${
                                 restaurants.find((x: any) => x.id == selectedrestaurant)?.name
                             }`}

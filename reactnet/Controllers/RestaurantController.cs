@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using reactnet.Data;
-using Microsoft.AspNetCore.Mvc;
-using reactnet.Models;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
-using reactnet.Models.APIModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using reactnet.Data;
 using reactnet.Helpers;
+using reactnet.Models;
 
 namespace reactnet.Controllers;
 
@@ -26,7 +20,7 @@ public class RestaurantController : ControllerBase
     }
 
     /// <summary>
-    /// Returns all the restaurants for the loggedin user
+    ///     Returns all the restaurants for the loggedin user
     /// </summary>
     /// <returns></returns>
     [Authorize]
@@ -45,7 +39,7 @@ public class RestaurantController : ControllerBase
     }
 
     /// <summary>
-    /// Creates or updates a restuarant 
+    ///     Creates or updates a restuarant
     /// </summary>
     /// <returns></returns>
     [Authorize]
@@ -69,7 +63,7 @@ public class RestaurantController : ControllerBase
                 return StatusCode(200, "Success");
             }
 
-            var newRes = new Restaurant()
+            var newRes = new Restaurant
             {
                 UserID = user.Id,
                 Name = data.Name,

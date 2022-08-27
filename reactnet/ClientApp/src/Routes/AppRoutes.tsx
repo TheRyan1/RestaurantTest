@@ -1,6 +1,5 @@
 import React from 'react'
-import {Routes, Route, Link} from "react-router-dom";
-import Dashboard from '../Pages/Dashboard';
+import {Route, Routes} from "react-router-dom";
 import NotFound from '../Pages/NotFound';
 import Restaurants from '../Pages/Restaurants';
 import Reservations from '../Pages/Reservations';

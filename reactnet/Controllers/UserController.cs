@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +13,10 @@ namespace reactnet.Controllers;
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {
-    private readonly ApplicationDbContext db;
-    private readonly UserManager<ApplicationUser> userManager;
-    private readonly RoleManager<IdentityRole> roleManager;
     private readonly IConfiguration config;
+    private readonly ApplicationDbContext db;
+    private readonly RoleManager<IdentityRole> roleManager;
+    private readonly UserManager<ApplicationUser> userManager;
 
 
     public UserController(RoleManager<IdentityRole> roleManager, ApplicationDbContext applicationDb,
@@ -33,7 +29,7 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
-    /// Get Logged In User Information
+    ///     Get Logged In User Information
     /// </summary>
     /// <returns></returns>
     [HttpGet("currentUser")]
@@ -57,7 +53,7 @@ public class UserController : ControllerBase
                     r => r.Id,
                     (ur, r) => new
                     {
-                        user = ur.user,
+                        ur.user,
                         role = r
                     })
                 .FirstOrDefaultAsync(x => x.user.Id == userId);
@@ -78,7 +74,7 @@ public class UserController : ControllerBase
 
 
     /// <summary>
-    /// Gets All the users for the admin
+    ///     Gets All the users for the admin
     /// </summary>
     /// <returns></returns>
     [Authorize(Roles = "Admin")]
@@ -101,12 +97,12 @@ public class UserController : ControllerBase
                     r => r.Id,
                     (ur, r) => new
                     {
-                        user = ur.user,
+                        ur.user,
                         role = r
                     }).ToListAsync();
             var userList = new List<UserModel>();
             foreach (var user in result)
-                userList.Add(new UserModel()
+                userList.Add(new UserModel
                 {
                     Email = user.user.Email,
                     FirstName = user.user.Name,
@@ -126,7 +122,7 @@ public class UserController : ControllerBase
 
 
     /// <summary>
-    /// New User
+    ///     New User
     /// </summary>
     /// <param name="value"></param>
     [Authorize(Roles = "Admin")]
@@ -181,7 +177,7 @@ public class UserController : ControllerBase
 
                 if (!roleResult.Succeeded)
                     return StatusCode(500,
-                        new ResultModel() { Message = roleResult.Errors.FirstOrDefault().Description });
+                        new ResultModel { Message = roleResult.Errors.FirstOrDefault().Description });
 
                 var user = await db.Users.Where(x => x.Email == model.Email).FirstOrDefaultAsync();
 
@@ -190,10 +186,10 @@ public class UserController : ControllerBase
             }
             else
             {
-                return StatusCode(500, new ResultModel() { Message = userResult.Errors.FirstOrDefault().Description });
+                return StatusCode(500, new ResultModel { Message = userResult.Errors.FirstOrDefault().Description });
             }
 
-            return StatusCode(200, new ResultModel() { Message = "Success" });
+            return StatusCode(200, new ResultModel { Message = "Success" });
         }
         catch (Exception e)
         {

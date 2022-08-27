@@ -1,8 +1,6 @@
 import {Button, Grid, TextField, Typography} from "@mui/material";
-import React, {useEffect, useState} from "react";
-import axios, {AxiosError} from "axios";
-import {useStore} from "../Providers/Store";
-import {Authenticate, doLogin, getCurrentUser} from "../API/Auth";
+import React, {useState} from "react";
+import {doLogin} from "../API/Auth";
 import {toast} from "react-toastify";
 
 function Login({

@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using reactnet.Models;
-using reactnet.Data;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using reactnet.Data;
+using reactnet.Models;
 
 namespace reactnet.Controllers;
 
@@ -22,7 +18,7 @@ public class OrderController : ControllerBase
     }
 
     /// <summary>
-    /// Gets the order for a specific or all orders 
+    ///     Gets the order for a specific or all orders
     /// </summary>
     /// <param></param>
     /// <returns></returns>
@@ -52,7 +48,7 @@ public class OrderController : ControllerBase
     }
 
     /// <summary>
-    /// Creates or updates an order
+    ///     Creates or updates an order
     /// </summary>
     /// <param></param>
     /// <returns></returns>
@@ -74,7 +70,7 @@ public class OrderController : ControllerBase
                 return StatusCode(200, "Success");
             }
 
-            var newOrder = new Order()
+            var newOrder = new Order
             {
                 MealID = data.MealID,
                 ReservationID = data.ReservationID,
