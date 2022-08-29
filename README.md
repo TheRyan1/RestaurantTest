@@ -16,23 +16,27 @@ This is a restaurant management system where a user is able to create restaurant
 A user can manage the list of restuarants as well as view the amount of set meals and reservations for each. 
 Clicking the numbers on the table under 'Meals' or 'Reservations' will redirect the user to the respective manage pages where they can either add / update meals or reservations.
 To Add a new restaurant, a user must click the 'Add restaurant button above the table'
-<img src="docImages/DataModel.png" />
+
+<img src="docImages/managerest.png" />
 
 ### Manage Reservations
 A user can manage the list of reservations as well as view the amount of orders created for each reservation
 Clicking the numbers on the table under 'Number of orders' will redirect the user to the respective manage page where they can either add / update orders
 Initially the 'Add reservation' button above the table is disabled. A user needs to first select a restaurant before they can add a reservation
-// IMage goes herer
+
+<img src="docImages/manageres.png" />
 
 ### Manage Meals
 A user can manage the list of meals for each restaurant
 Initially the 'Add Meal' button above the table is disabled. A user needs to first select a restaurant before they can add a meal.
 All the food types are hard coded into the application.
-// IMage goes herer
+
+<img src="docImages/managem.png" />
 
 ### Manage Users
 The admin can create / udpated users for the system
-// IMage goes herer
+
+<img src="docImages/manageu.png" />
 
 ## Tech Used
 
@@ -44,7 +48,7 @@ The application was built with dotnetcore 6 for the backend, ReactJS for the fro
 
 ## Database design
 
-//Image here
+<img src="docImages/DataModel.png" />
 
 
 # How to run the app on your local:
