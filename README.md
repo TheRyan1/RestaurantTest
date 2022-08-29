@@ -66,7 +66,7 @@ The application was built with dotnetcore 6 for the backend, ReactJS for the fro
 ## Admin login
 - The Admin user is seeded when updating the database
 - Any user created will use the email and password combination to login
-- 
+
 | Email | Password |
 | ------ | ------ |
 | admin@test.com | admin |
