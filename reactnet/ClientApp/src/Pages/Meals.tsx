@@ -187,7 +187,7 @@ function Meals() {
                     }}
                 >
                     <Button
-                        disabled={selectedrestaurant === 0}
+                        disabled={parseInt(selectedrestaurant) === 0}
                         startIcon={<AddCircle/>}
                         onClick={() => {
                             setSelectedForUpdate(null);
