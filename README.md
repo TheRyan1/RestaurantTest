@@ -8,7 +8,7 @@ This is a restaurant management system where a user is able to create restaurant
 
 - Admin control over all reataurants, reservations and orders created by standard users
 - Ability to create set meals to be used when making orders
-- A nice visual representation in the tables showing number of reservations, orders and meals for each restaurant 
+- A visual representation in the tables showing number of reservations, orders and meals for each restaurant 
 - JWT authentication
 
 # Preview
